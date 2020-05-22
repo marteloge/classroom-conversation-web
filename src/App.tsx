@@ -9,12 +9,16 @@ import Start from "./Start/Start";
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background-image: url("/../public/background.jpg");
-    background: darkgray;
+    background-color: #303030;
+    color: #FFFFFF;
     margin: 0;
     padding: 0;
     min-width: 100vw;
     min-height: 100vh;
+  }
+  
+  h1 {
+    font-size: 40px;
   }`;
 
 function App() {
