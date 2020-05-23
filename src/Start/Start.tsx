@@ -6,6 +6,9 @@ import { StartNode, UrlParams, Conversation } from "./../types";
 import { useHistory } from "react-router-dom";
 
 import Loading from "../Loading/Loading";
+import StyledStart from "./Start.styled";
+
+import alarm from "./../static/alarm.png";
 
 const Start = () => {
   const history = useHistory();
@@ -22,20 +25,24 @@ const Start = () => {
   const startNode: StartNode = data.json.start;
 
   return (
-    <div>
-      <h1>{data.name}</h1>
-      <p>{startNode.label}</p>
+    <StyledStart>
+      <div>
+        <h1>{data.name}</h1>
+        <p>{startNode.label}</p>
 
-      <button
-        onClick={() =>
-          history.push(
-            "/conversation/" + uuid + "/question/" + startNode.firstQuestion
-          )
-        }
-      >
-        <p>Start samtale</p>
-      </button>
-    </div>
+        <img src={alarm}></img>
+
+        <button
+          onClick={() =>
+            history.push(
+              "/conversation/" + uuid + "/question/" + startNode.firstQuestion
+            )
+          }
+        >
+          Start matteundervisning
+        </button>
+      </div>
+    </StyledStart>
   );
 };
 
