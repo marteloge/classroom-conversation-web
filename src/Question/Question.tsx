@@ -3,6 +3,8 @@ import { useHistory } from "react-router-dom";
 
 import { Graph, Answer, Answers, Questions } from "../types";
 
+import { motion } from "framer-motion";
+
 import teacher from "./../static/teacher.png";
 import student from "./../static/student.png";
 
@@ -41,8 +43,26 @@ const QuestionComponent = ({ graph, uuid, id }: Props) => {
   return (
     <StyledQuestion>
       <StyledAnswer>
-        <h2 className="teacher">{question.label}</h2>
-        <h2 className="student">{answers[randomAnswer.id].label || ""}</h2>
+        <motion.h2
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          key={"teacher" + id}
+          className="teacher"
+        >
+          {question.label}
+        </motion.h2>
+
+        <motion.h2
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ delay: 1.5 }}
+          key={"student_" + id}
+          className="student"
+        >
+          {answers[randomAnswer.id].label || ""}
+        </motion.h2>
       </StyledAnswer>
 
       <StyledAlternatives>
