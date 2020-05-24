@@ -8,6 +8,10 @@ export const StyledPause = styled.div`
   justify-content: center;
   align-items: center;
   padding: 5%;
+
+  h1 {
+    text-align: center;
+  }
 `;
 
 export const StyledAlternatives = styled.div`
