@@ -57,7 +57,7 @@ const QuestionComponent = ({ graph, uuid, id }: Props) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ delay: 1.5 }}
+          transition={{ delay: 1 }}
           key={"student_" + id}
           className="student"
         >
