@@ -36,16 +36,23 @@ const GlobalStyle = createGlobalStyle`
     font-size: 2.5rem;
   }
 
-  button {
+
+  button, a {
     outline: none;
-    border: none;
-    border-radius: 8px;
-    padding: 1rem;
     box-shadow: none;
-    cursor: pointer;
-    background-color: #363334;
-    color: white;
+    border-radius: 8px;
+    border: 1px solid white;
+    padding: 1rem;
     font-size: 1rem;
+    background-color: transparent;
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+  }
+
+  button.dark {
+    background-color: #363334;
+    border: none;
   }
 `;
 

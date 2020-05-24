@@ -8,23 +8,12 @@ import { motion } from "framer-motion";
 import teacher from "./../static/teacher.png";
 import student from "./../static/student.png";
 
-import { selectRandomAnsers } from "./../helpers";
-
 import {
   StyledQuestion,
   StyledAlternatives,
   StyledAnswer,
   StyledIcons,
 } from "./Question.styled";
-
-const getRandomAnswer = (
-  answers: Answers,
-  alternatives: Array<{ id: string }>
-): Answer => {
-  return answers[
-    alternatives[Math.floor(Math.random() * alternatives.length)].id
-  ];
-};
 
 type Props = {
   graph: Graph;
@@ -76,6 +65,7 @@ const QuestionComponent = ({ graph, uuid, id }: Props) => {
             <>
               {alternatives.map((id: string, key: number) => (
                 <motion.button
+                  className="dark"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
