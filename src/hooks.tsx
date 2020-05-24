@@ -1,9 +1,5 @@
-// hooks.js
 import { useState, useEffect } from "react";
 import { selectRandomAnsers } from "./helpers";
-import { Graph, Conversation } from "./types";
-
-// TODO: on fetch select elev answer!
 
 export function useLocalStorage<T>(key: string): [T, (v: T) => void] {
   const [storedValue, setStoredValue] = useState<T>(() => {
