@@ -36,7 +36,7 @@ const Pause = ({ uuid, id, next, current }: PauseProps) => {
       </motion.h2>
 
       <StyledAlternatives>
-        <img src={teacher}></img>
+        <img src={teacher} alt="teacher icon" />
         <div className="alternatives">
           <button
             onClick={() =>

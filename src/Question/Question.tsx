@@ -67,8 +67,8 @@ const QuestionComponent = ({ graph, uuid, id }: Props) => {
 
       <StyledAlternatives>
         <StyledIcons>
-          <img className="teacher" src={teacher} />
-          <img className="student" src={student} />
+          <img className="teacher" alt="teacher icon" src={teacher} />
+          <img className="student" alt="student icon" src={student} />
         </StyledIcons>
 
         <div className="alternatives">

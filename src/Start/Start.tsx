@@ -30,7 +30,7 @@ const Start = () => {
         <h1>{data.name}</h1>
         <p>{startNode.label}</p>
 
-        <img src={alarm}></img>
+        <img src={alarm} alt="alarm icon" />
 
         <button
           onClick={() =>
