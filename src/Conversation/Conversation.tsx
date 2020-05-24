@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-import { useFetchAndStore } from "../hooks";
+import { useFetchAndStoreConversation } from "../hooks";
 import { Conversation, Graph, UrlParams, Question, Questions } from "../types";
 
 import QuestionComponent from "./../Question/Question";
@@ -37,7 +37,7 @@ const isNextQuestion = (question: Question): boolean =>
 
 const ConversationComponent = () => {
   const { uuid, id } = useParams<UrlParams>();
-  const [data, loading] = useFetchAndStore<Conversation>(
+  const [data, loading] = useFetchAndStoreConversation<Conversation>(
     `/api/document/${uuid}`,
     uuid
   );

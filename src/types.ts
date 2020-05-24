@@ -7,6 +7,7 @@ export type Question = {
     percentage?: number;
     shape: string;
   }>;
+  selectedAnswer: string;
 };
 
 export type Questions = {

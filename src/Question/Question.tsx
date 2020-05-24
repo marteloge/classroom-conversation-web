@@ -8,6 +8,8 @@ import { motion } from "framer-motion";
 import teacher from "./../static/teacher.png";
 import student from "./../static/student.png";
 
+import { selectRandomAnsers } from "./../helpers";
+
 import {
   StyledQuestion,
   StyledAlternatives,
@@ -35,7 +37,7 @@ const QuestionComponent = ({ graph, uuid, id }: Props) => {
   const questions: Questions = graph.questions;
   const answers: Answers = graph.answers;
   const question = questions[id];
-  const randomAnswer: Answer = getRandomAnswer(answers, question.answers);
+  const randomAnswer: Answer = answers[question.selectedAnswer];
   const alternatives: Array<string> = randomAnswer.alternatives;
 
   return (

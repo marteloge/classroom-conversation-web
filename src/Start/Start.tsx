@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-import { useFetchAndStore } from "../hooks";
+import { useFetchAndStoreConversation } from "../hooks";
 import { StartNode, UrlParams, Conversation } from "./../types";
 import { useHistory } from "react-router-dom";
 
@@ -13,7 +13,7 @@ import alarm from "./../static/alarm.png";
 const Start = () => {
   const history = useHistory();
   const { uuid } = useParams<UrlParams>();
-  const [data, loading] = useFetchAndStore<Conversation>(
+  const [data, loading] = useFetchAndStoreConversation<Conversation>(
     `/api/document/${uuid}`,
     uuid
   );

@@ -1,5 +1,7 @@
 // hooks.js
 import { useState, useEffect } from "react";
+import { selectRandomAnsers } from "./helpers";
+import { Graph, Conversation } from "./types";
 
 // TODO: on fetch select elev answer!
 
@@ -25,11 +27,11 @@ export function useLocalStorage<T>(key: string): [T, (v: T) => void] {
   return [storedValue, setValue];
 }
 
-export function useFetchAndStore<T>(
+export function useFetchAndStoreConversation<Conversation>(
   url: string,
   key: string
-): [T | undefined, boolean] {
-  const [data, setData] = useLocalStorage<T>(key);
+): [Conversation | undefined, boolean] {
+  const [data, setData] = useLocalStorage<Conversation>(key);
   const [loading, setLoading] = useState(true);
 
   async function fetchUrl() {
@@ -37,7 +39,13 @@ export function useFetchAndStore<T>(
 
     if (response.status === 200) {
       setLoading(false);
-      setData(await response.json());
+      const conversation = await response.json();
+      if (conversation) {
+        conversation.json.questions = selectRandomAnsers(
+          conversation.json.questions
+        );
+        setData(conversation);
+      }
     } else {
       setLoading(false);
     }
@@ -53,23 +61,3 @@ export function useFetchAndStore<T>(
 
   return [data, loading];
 }
-
-// export function useFetch<T>(url: string): [T | undefined, boolean] {
-//   const [data, setData] = useState<T>();
-//   const [loading, setLoading] = useState(true);
-
-//   async function fetchUrl() {
-//     const response = await fetch(url);
-
-//     const json = await response.json();
-
-//     setData(json);
-//     setLoading(false);
-//   }
-
-//   useEffect(() => {
-//     fetchUrl();
-//   }, []);
-
-//   return [data, loading];
-// }
