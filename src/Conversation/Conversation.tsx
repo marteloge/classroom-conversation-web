@@ -9,6 +9,8 @@ import Finish from "./../Finish/Finish";
 import Pause from "./../Pause/Pause";
 import Loading from "./../Loading/Loading";
 
+import { addQuestionToConversation } from "./../helpers";
+
 const nodeShape = {
   ROUND_RECTANGLE: "roundrectangle",
   DIAMOND: "diamond",
@@ -45,6 +47,8 @@ const ConversationComponent = () => {
   if (!data || loading) {
     return <Loading />;
   }
+
+  addQuestionToConversation(id);
 
   const graph: Graph = data.json;
   const questions: Questions = graph.questions;

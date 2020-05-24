@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 
 import { useFetchAndStoreConversation } from "../hooks";
+import { removeRecordedConversation } from "./../helpers";
 import { StartNode, UrlParams, Conversation } from "./../types";
 import { useHistory } from "react-router-dom";
 
@@ -29,15 +30,14 @@ const Start = () => {
       <div>
         <h1>{data.name}</h1>
         <p>{startNode.label}</p>
-
         <img src={alarm} alt="alarm icon" />
-
         <button
-          onClick={() =>
+          onClick={() => {
+            removeRecordedConversation();
             history.push(
               "/conversation/" + uuid + "/question/" + startNode.firstQuestion
-            )
-          }
+            );
+          }}
         >
           Start matteundervisning
         </button>
