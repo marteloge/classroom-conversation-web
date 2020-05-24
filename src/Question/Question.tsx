@@ -72,15 +72,19 @@ const QuestionComponent = ({ graph, uuid, id }: Props) => {
         <div className="alternatives">
           {alternatives.length > 0 && (
             <>
-              {alternatives.map((id: string) => (
-                <button
-                  key={id}
+              {alternatives.map((id: string, key: number) => (
+                <motion.button
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ delay: 2 + 0.5 * key }}
+                  key={"alternative_" + key}
                   onClick={() =>
                     history.push("/conversation/" + uuid + "/question/" + id)
                   }
                 >
                   <p>{questions[id].label}</p>
-                </button>
+                </motion.button>
               ))}
             </>
           )}

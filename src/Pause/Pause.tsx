@@ -28,7 +28,7 @@ const Pause = ({ uuid, id, next, current }: PauseProps) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ delay: 1.5 }}
+        transition={{ delay: 1 }}
         key="student"
         className="student"
       >
@@ -38,13 +38,18 @@ const Pause = ({ uuid, id, next, current }: PauseProps) => {
       <StyledAlternatives>
         <img src={teacher} alt="teacher icon" />
         <div className="alternatives">
-          <button
+          <motion.button
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ delay: 2 }}
+            key="alternatives"
             onClick={() =>
               history.push("/conversation/" + uuid + "/question/" + id)
             }
           >
             {next.label}
-          </button>
+          </motion.button>
         </div>
       </StyledAlternatives>
     </StyledPause>
