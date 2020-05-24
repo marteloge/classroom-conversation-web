@@ -38,8 +38,6 @@ const QuestionComponent = ({ graph, uuid, id }: Props) => {
   const randomAnswer: Answer = getRandomAnswer(answers, question.answers);
   const alternatives: Array<string> = randomAnswer.alternatives;
 
-  console.log(alternatives);
-
   return (
     <StyledQuestion>
       <StyledAnswer>
