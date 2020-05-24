@@ -14,6 +14,11 @@ const StyledStart = styled.div`
   justify-content: center;
   align-content: center;
 
+  .actions {
+    display: flex;
+    flex-direction: row;
+  }
+
   div {
     display: flex;
     flex-direction: column;
@@ -22,8 +27,6 @@ const StyledStart = styled.div`
 
     padding: 5%;
     max-width: 900px;
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 15px;
 
     * {
       margin: 15px 0;
@@ -35,9 +38,7 @@ const StyledStart = styled.div`
   }
 
   button {
-    width: 250px;
-    min-height: 50px;
-    font-size: 1rem;
+    margin: 0 10px;
   }
 `;
 

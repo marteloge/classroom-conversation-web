@@ -48,3 +48,13 @@ export const removeRecordedConversation = () => {
 export const removeConversation = (uuid: string) => {
   window.localStorage.removeItem(uuid);
 };
+
+export const hasDialogRecorded = () => {
+  const dialog: string[] = getRecordedConversation();
+  return dialog.length >= 1;
+};
+
+export const getLastQuestion = () => {
+  const dialog: string[] = getRecordedConversation();
+  return dialog[dialog.length - 1];
+};
