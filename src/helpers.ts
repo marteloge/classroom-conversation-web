@@ -1,4 +1,4 @@
-import { Questions, Question, Answers } from "./types";
+import { Questions } from "./types";
 
 export const next = () => {};
 
@@ -43,4 +43,8 @@ export const getRecordedConversation = (): string[] => {
 
 export const removeRecordedConversation = () => {
   window.localStorage.removeItem("conversation");
+};
+
+export const removeConversation = (uuid: string) => {
+  window.localStorage.removeItem(uuid);
 };
