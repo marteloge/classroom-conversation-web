@@ -2,7 +2,14 @@ import React from "react";
 import { useParams } from "react-router-dom";
 
 import { useFetchAndStoreConversation } from "../hooks";
-import { Conversation, Graph, UrlParams, Question, Questions } from "../types";
+import {
+  Conversation,
+  Graph,
+  UrlParams,
+  Question,
+  Questions,
+  Answers,
+} from "../types";
 
 import QuestionComponent from "./../Question/Question";
 import Finish from "./../Finish/Finish";
@@ -51,10 +58,11 @@ const ConversationComponent = () => {
   addQuestionToConversation(id);
 
   const graph: Graph = data.json;
+  const answers: Answers = graph.answers;
   const questions: Questions = graph.questions;
 
   if (isConversationFinished(id, questions, graph.end)) {
-    return <Finish />;
+    return <Finish questions={questions} answers={answers} />;
   }
 
   const question: Question = questions[id];

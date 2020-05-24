@@ -27,4 +27,12 @@ export const StyledFinish = styled.div`
   .sample-exit {
     opacity: 1;
   }
+  .download {
+    color: white;
+  }
+
+  button,
+  a {
+    margin: 20px 10px;
+  }
 `;
