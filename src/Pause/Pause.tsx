@@ -5,22 +5,47 @@ import { PauseProps } from "./../types";
 
 import { StyledPause, StyledAlternatives } from "./Pause.styled";
 
+import teacher from "./../static/teacher.png";
+
+import { motion } from "framer-motion";
+
 const Pause = ({ uuid, id, next, current }: PauseProps) => {
   const history = useHistory();
 
   return (
     <StyledPause>
-      <h1>{current.label}</h1>
+      <motion.h1
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        key={"student_" + id}
+        className="student"
+      >
+        {current.label}
+      </motion.h1>
+
+      <motion.h2
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ delay: 1.5 }}
+        key="student"
+        className="student"
+      >
+        La oss fortsette til neste spørsmål!
+      </motion.h2>
 
       <StyledAlternatives>
-        <p>Fortsett til neste spørsmål: </p>
-        <button
-          onClick={() =>
-            history.push("/conversation/" + uuid + "/question/" + id)
-          }
-        >
-          {next.label}
-        </button>
+        <img src={teacher}></img>
+        <div className="alternatives">
+          <button
+            onClick={() =>
+              history.push("/conversation/" + uuid + "/question/" + id)
+            }
+          >
+            {next.label}
+          </button>
+        </div>
       </StyledAlternatives>
     </StyledPause>
   );

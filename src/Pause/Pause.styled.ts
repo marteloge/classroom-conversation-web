@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { calculateResponsiveSize } from "./../helpers";
+
 export const StyledPause = styled.div`
   display: flex;
   flex-direction: column;
@@ -9,20 +11,36 @@ export const StyledPause = styled.div`
 `;
 
 export const StyledAlternatives = styled.div`
-  padding: 5px;
-  min-height: 150px;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  background-color: rgba(255, 255, 255, 0.3);
+
   position: fixed;
   bottom: 0;
-  border-radius: 0;
+
+  img {
+    width: ${calculateResponsiveSize(150, 400)};
+  }
+
+  .alternatives {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 0;
+    padding: 10px;
+    min-height: 150px;
+
+    @media screen and (max-width: 600px) {
+      flex-direction: column;
+      justify-content: space-around;
+    }
+  }
 
   button {
-    margin: 10px;
-    font-size: 0.7rem;
+    margin: 0 10px;
   }
 `;

@@ -45,6 +45,7 @@ const GlobalStyle = createGlobalStyle`
     cursor: pointer;
     background-color: #363334;
     color: white;
+    font-size: 1rem;
   }
 `;
 

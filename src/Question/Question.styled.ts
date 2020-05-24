@@ -59,7 +59,6 @@ export const StyledAlternatives = styled.div`
 
   button {
     margin: 0 10px;
-    font-size: 1rem;
   }
 `;
 
