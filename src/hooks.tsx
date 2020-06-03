@@ -57,3 +57,30 @@ export function useFetchAndStoreConversation<Conversation>(
 
   return [data, loading];
 }
+
+export function useFetch<T>(url: string): [T | undefined, boolean] {
+  const [data, setData] = useState<T>();
+  const [loading, setLoading] = useState(true);
+
+  async function fetchUrl() {
+    const response = await fetch(url);
+
+    if (response.status === 200) {
+      setLoading(false);
+      const respoonses = await response.json();
+      setData(respoonses);
+    } else {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    if (data) {
+      setLoading(false);
+    } else {
+      fetchUrl();
+    }
+  }, []);
+
+  return [data, loading];
+}
