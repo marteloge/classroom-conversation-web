@@ -8,6 +8,7 @@ import ConversationComponent from "./Conversation/Conversation";
 import Start from "./Start/Start";
 
 import background from "./static/background2.png";
+import Browse from "./Browse/Browse";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -62,6 +63,7 @@ function App() {
       <GlobalStyle />
       <Switch>
         <Route exact path="/" component={Landingpage} />
+        <Route exact path="/browse" component={Browse} />
         <Route exact path="/conversation/:uuid/start" component={Start} />
         <Route
           exact
