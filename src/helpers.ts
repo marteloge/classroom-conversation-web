@@ -51,7 +51,7 @@ export const removeConversation = (uuid: string) => {
 
 export const hasDialogRecorded = () => {
   const dialog: string[] = getRecordedConversation();
-  return dialog.length >= 1;
+  return dialog.length >= 2;
 };
 
 export const getLastQuestion = () => {
