@@ -62,7 +62,14 @@ const ConversationComponent = () => {
   const questions: Questions = graph.questions;
 
   if (isConversationFinished(id, questions, graph.end)) {
-    return <Finish questions={questions} answers={answers} />;
+    return (
+      <Finish
+        name={data.name}
+        description={data.description}
+        questions={questions}
+        answers={answers}
+      />
+    );
   }
 
   const question: Question = questions[id];
