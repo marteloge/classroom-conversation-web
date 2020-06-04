@@ -48,22 +48,25 @@ export const selectRandomAnswers = (questions: Questions, uniform: boolean) => {
   return questions;
 };
 
-export const addQuestionToConversation = (id: string): void => {
-  const conversation: string[] = getRecordedConversation();
+export const addQuestionToConversation = (id: string, uuid: string): void => {
+  const conversation: string[] = getRecordedConversation(uuid);
 
   if (conversation.indexOf(id) >= 0) {
     window.localStorage.setItem(
-      "conversation",
+      `conversation_${uuid}`,
       JSON.stringify(conversation.slice(0, conversation.indexOf(id) + 1))
     );
   } else {
     conversation.push(id);
-    window.localStorage.setItem("conversation", JSON.stringify(conversation));
+    window.localStorage.setItem(
+      `conversation_${uuid}`,
+      JSON.stringify(conversation)
+    );
   }
 };
 
-export const getRecordedConversation = (): string[] => {
-  const localValue = window.localStorage.getItem("conversation");
+export const getRecordedConversation = (uuid: string): string[] => {
+  const localValue = window.localStorage.getItem(`conversation_${uuid}`);
   return localValue ? JSON.parse(localValue) : [];
 };
 
@@ -75,12 +78,12 @@ export const removeConversation = (uuid: string) => {
   window.localStorage.removeItem(uuid);
 };
 
-export const hasDialogRecorded = () => {
-  const dialog: string[] = getRecordedConversation();
+export const hasDialogRecorded = (uuid: string) => {
+  const dialog: string[] = getRecordedConversation(uuid);
   return dialog.length >= 2;
 };
 
-export const getLastQuestion = () => {
-  const dialog: string[] = getRecordedConversation();
+export const getLastQuestion = (uuid: string) => {
+  const dialog: string[] = getRecordedConversation(uuid);
   return dialog[dialog.length - 1];
 };

@@ -165,7 +165,7 @@ const Finish = ({ name, description, questions, answers }: FinishProps) => {
               name={name}
               description={description}
               questions={questions}
-              dialog={getRecordedConversation()}
+              dialog={getRecordedConversation(uuid)}
               answers={answers}
             />
           }

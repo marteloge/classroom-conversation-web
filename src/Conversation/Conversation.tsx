@@ -55,7 +55,7 @@ const ConversationComponent = () => {
     return <Loading />;
   }
 
-  addQuestionToConversation(id);
+  addQuestionToConversation(id, uuid);
 
   const graph: Graph = data.json;
   const answers: Answers = graph.answers;

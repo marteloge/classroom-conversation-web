@@ -28,6 +28,7 @@ const Start = () => {
   }
 
   const startNode: StartNode = data.json.start;
+  const hasDialog: boolean = hasDialogRecorded(uuid);
 
   return (
     <StyledStart>
@@ -44,15 +45,13 @@ const Start = () => {
               );
             }}
           >
-            {hasDialogRecorded()
-              ? "Start samtalen på ny"
-              : "Start matteundervisningen"}
+            {hasDialog ? "Start samtalen på ny" : "Start matteundervisningen"}
           </button>
-          {hasDialogRecorded() && (
+          {hasDialog && (
             <button
               onClick={() =>
                 history.push(
-                  "/conversation/" + uuid + "/question/" + getLastQuestion()
+                  "/conversation/" + uuid + "/question/" + getLastQuestion(uuid)
                 )
               }
             >
